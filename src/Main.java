@@ -1,63 +1,57 @@
 import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Course;
 import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.Mentoring;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(8);
+        Course course1 = new Course();
+        course1.setTitle("Java Course");
+        course1.setDescription("Java course description");
+        course1.setWorkload(8);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(4);
+        Course course2 = new Course();
+        course2.setTitle("JavaScript Course");
+        course2.setDescription("JavaScript course description");
+        course2.setWorkload(4);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
-        mentoria.setData(LocalDate.now());
-
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        Mentoring mentoring = new Mentoring();
+        mentoring.setTitle("Java Mentoring");
+        mentoring.setDescription("Java mentoring description");
+        mentoring.setDate(LocalDate.now());
 
         Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        bootcamp.setName("Java Developer Bootcamp");
+        bootcamp.setDescription("Java Developer Bootcamp Description");
+        bootcamp.getContents().add(course1);
+        bootcamp.getContents().add(course2);
+        bootcamp.getContents().add(mentoring);
 
         Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
+        devCamila.setName("Camila");
+        devCamila.enrollInBootcamp(bootcamp);
+        System.out.println("Enrolled Contents Camila: " + devCamila.getEnrolledContents());
+        devCamila.progress();
+        devCamila.progress();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        System.out.println("Enrolled Contents Camila: " + devCamila.getEnrolledContents());
+        System.out.println("Completed Contents Camila: " + devCamila.getCompletedContents());
+        System.out.println("XP: " + devCamila.calculateTotalXp());
 
         System.out.println("-------");
 
         Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
-        devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
+        devJoao.setName("Joao");
+        devJoao.enrollInBootcamp(bootcamp);
+        System.out.println("Enrolled Contents Joao: " + devJoao.getEnrolledContents());
+        devJoao.progress();
+        devJoao.progress();
+        devJoao.progress();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());
-
+        System.out.println("Enrolled Contents Joao: " + devJoao.getEnrolledContents());
+        System.out.println("Completed Contents Joao: " + devJoao.getCompletedContents());
+        System.out.println("XP: " + devJoao.calculateTotalXp());
     }
-
 }
